@@ -1,10 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>anindya</title>
-    <link rel="stylesheet" type="text/css" href="pages.css"
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="anindya.css">
+	<title>SPA Menu</title>
 </head>
 <body>
-    <h1>Nur Anindya Putri Haryandini (NIM : 41215998)</h1>
+	<div class="bagian"> 
+		<nav class="wrapper">
+			<div class="nama">
+				<div class="nama1">Nur Anindya Putri Haryandini</div>
+			</div>
+				<ul class="navigation">
+				<li><a href="#home" class="active">Home</a></li>
+				<li><a href="#about" class="active">About</a></li>
+				<li><a href="#contact"  class="active">Contact</a></li>
+			</ul>
+		</nav>
+		<div id="konten">
+		<div id="isi">
+        <div id="home" class="isi_1">
+          <h1>Hallo!</h1>
+          <img src="foto.jpg">
+          <p>Saya Nur Anindya Putri Haryandini</p>
+          <p>NIM : 41215998</p>
+        </div>
+        <div id="about" class="isi_2">
+          <p>Saya mahasiswi STMIK Ikmi angkatan 2021</p>
+          <p>Prodi Teknik Informatika</p>
+        </div>
+        <div id="contact" class="isi_3">
+            <p>Hubungi saya melalui :</p>
+            <br>
+            <a href="https://instagram.com/anindyaptr2">Instagram</a>
+        </div>
+      </div>
+      </div>
+	</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+  var currentSection = 0;
+  $("#konten").hide();
+  $("li a").click(function () {
+    $("li a").removeClass("active");
+    $(this).addClass("active");
+
+    var href = $(this).attr("href");
+    $("#isi>div").hide();
+
+    $(href).show();
+
+    if (currentSection == 0) {
+      $("#konten").slideToggle(200);
+      currentSection = href;
+    } else if (currentSection == href) {
+      $("#konten").slideToggle(200);
+      currentSection = 0;
+    } else {
+      currentSection = href;
+    }
+    return false;
+  });
+});
+</script>
+
 </body>
 </html>
